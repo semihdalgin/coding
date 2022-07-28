@@ -59,8 +59,9 @@ test_loader = DataLoader(test_dataset, batch_size= batch_size, shuffle= False)
 class_names_train = os.listdir(DATA_PATH)
 
 image_count = {}
+
 for i in class_names_train:
- image_count[i] = len(os.listdir(os.path.join(DATA_PATH, i))) - 1
+    image_count[i] = len(os.listdir(os.path.join(DATA_PATH, i))) - 1
 
 # Plotting Distribution of Each Classes
 fig1, ax1 = plt.subplots(figsize=(10, 10), subplot_kw=dict(aspect="equal"))
