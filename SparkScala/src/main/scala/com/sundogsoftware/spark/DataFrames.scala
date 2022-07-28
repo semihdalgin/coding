@@ -11,7 +11,6 @@ object DataFrames {
     val fields = line.split(',')  
     
     val person:Person = Person(fields(0).toInt, fields(1), fields(2).toInt, fields(3).toInt)
-
     person
   }
   
