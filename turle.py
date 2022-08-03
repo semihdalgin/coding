@@ -9,21 +9,21 @@ soup = BeautifulSoup(webpage, "html.parser")
 
 turtle_links = soup.find_all("a")
 links = []
-# go through all of the a tags and get the links associated with them:
+# go through all of the a tags and get the links associated with them"
 for a in turtle_links:
     links.append(prefix + a["href"])
 
 # Define turtle_data:
 turtle_data = {}
-# follow each link:
 
+# follow each link:
 for link in links:
     webpage = requests.get(link)
     turtle = BeautifulSoup(webpage.content, "html.parser")
-    # Add your code here:
-    turtle_name = turtle.select('.name')[0]
-    print(turtle_name)
-    turtle_data[turtle_name] = []
+    turtle_name = turtle.select(".name")[0].get_text()
+
+    stats = turtle.find("ul")
+    stats_text = stats.get_text("|")
+    turtle_data[turtle_name] = stats_text.split("|")
 
 print(turtle_data)
-
