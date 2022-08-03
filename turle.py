@@ -21,7 +21,7 @@ for link in links:
     webpage = requests.get(link)
     turtle = BeautifulSoup(webpage.content, "html.parser")
     turtle_name = turtle.select(".name")[0].get_text()
-
+    print(turtle_name)
     stats = turtle.find("ul")
     stats_text = stats.get_text("|")
     turtle_data[turtle_name] = stats_text.split("|")
